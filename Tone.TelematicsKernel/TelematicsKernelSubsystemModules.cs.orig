@@ -1,0 +1,53 @@
+﻿using Tone.Core.Subsystems;
+using Tone.Core.Subsystems.TelematicsKernel;
+
+namespace Tone.TelematicsKernel
+{
+    public class TelematicsKernelSubsystemModules : AbstractSubsystemModules, ITelematicsKernelSubsystemModules
+    {
+        /// <summary>
+        /// Модуль Геозоны
+        /// </summary>
+        public IGeozoneModuleCore Geozones { get; }
+
+        /// <summary>
+        /// Модуль ТУ
+        /// </summary>
+        public IDevicesModuleCore Devices { get; }
+
+        /// <summary>
+        /// Модуль TrackAnalyze
+        /// </summary>
+        public ITrackAnalyzeModuleCore TrackAnalyzes { get; }
+
+        /// <summary>
+        /// Модуль ConfigDBA
+        /// </summary>
+        public IDriveStyleSettingsModuleCore DriveStyleSettings { get; }
+
+<<<<<<< HEAD
+
+        public TelematicsKernelSubsystemModules(IGeozoneModuleCore geozones, IDevicesModuleCore devices, ITrackAnalyzeModuleCore trackAnalyzes, IDriveStyleSettingsModuleCore driveStyleSettings)
+        {
+=======
+        /// <summary>
+        /// Модуль агрегации аналитических интервалов
+        /// </summary>
+        public IGeneralSegmentStatisticAggregator GeneralSegmentStatisticAggregator { get; }
+
+        public TelematicsKernelSubsystemModules(
+            IGeozoneModuleCore geozones, 
+            IDevicesModuleCore devices, 
+            ITrackAnalyzeModuleCore trackAnalyzes, 
+            IDriveStyleSettingsModuleCore driveStyleSettings, 
+            IGeneralSegmentStatisticAggregator generalSegmentStatisticAggregator)
+        {
+            GeneralSegmentStatisticAggregator = generalSegmentStatisticAggregator;
+>>>>>>> develop
+            Geozones = AddModule<IGeozoneModuleCore>(geozones);
+            Devices = AddModule<IDevicesModuleCore>(devices);
+            TrackAnalyzes = AddModule<ITrackAnalyzeModuleCore>(trackAnalyzes);
+            DriveStyleSettings = AddModule<IDriveStyleSettingsModuleCore>(driveStyleSettings);
+        }
+    }
+}

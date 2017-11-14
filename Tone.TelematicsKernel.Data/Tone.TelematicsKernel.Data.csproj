@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8E7F96B8-0A59-45A1-B8E7-6D713DA85413}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tone.TelematicsKernel.Data</RootNamespace>
+    <AssemblyName>Tone.TelematicsKernel.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-part|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug-part\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SqlServer.Types, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="MongoDB.Bson, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.4.4\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.4.4\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.4.4\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\GeocodeInfo.cs" />
+    <Compile Include="Model\GeozoneInfo.cs" />
+    <Compile Include="Model\NotificationRuleInfo.cs" />
+    <Compile Include="Model\SafetyInfo.cs" />
+    <Compile Include="Model\SpeedLimit.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\GeoProviders\GeocodingProvider.cs" />
+    <Compile Include="Providers\GeoProviders\SafetyObjectsProvider.cs" />
+    <Compile Include="Providers\GeoProviders\SpeedLimitProvider.cs" />
+    <Compile Include="Providers\SpeedlimitProvider.cs" />
+    <Compile Include="Repository\Mongo\AnalyticDeviceRepository.cs" />
+    <Compile Include="Repository\Mongo\DeviceHistoryRepository.cs" />
+    <Compile Include="Repository\Mongo\DriveStylePenaltyScoresRepository.cs" />
+    <Compile Include="Repository\Mongo\DriveStyleSettingsHistoryRepository.cs" />
+    <Compile Include="Repository\Mongo\DriveStyleSettingsRepository.cs" />
+    <Compile Include="Repository\Mongo\DeviceGroupRepository.cs" />
+    <Compile Include="Repository\Mongo\DeviceRepository.cs" />
+    <Compile Include="Repository\Mongo\DriveStyleVehiclePenaltiesRepository.cs" />
+    <Compile Include="Repository\Mongo\DriveStyleCoefficientsRepository.cs" />
+    <Compile Include="Repository\Mongo\ExecutionRepository.cs" />
+    <Compile Include="Repository\Mongo\GeoJsonGenerator.cs" />
+    <Compile Include="Repository\Mongo\GeoProviders\GeocodeInfoRepository.cs" />
+    <Compile Include="Repository\Mongo\GeoProviders\GeozoneInfoRepository.cs" />
+    <Compile Include="Repository\Mongo\GeoProviders\NotificationRuleInfoRepository.cs" />
+    <Compile Include="Repository\Mongo\GeoProviders\SafetyInfoRepository.cs" />
+    <Compile Include="Repository\Mongo\GeoProviders\SpeedLimitRepository.cs" />
+    <Compile Include="Repository\Mongo\GeozoneRepository.cs" />
+    <Compile Include="Repository\Mongo\RecordRepository.cs" />
+    <Compile Include="Repository\Mongo\StateRepository.cs" />
+    <Compile Include="Repository\Mongo\TelematicCommandRepository.cs" />
+    <Compile Include="Repository\Mongo\TrackEventRepository.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Tone.Pagination\Tone.Pagination.csproj">
+      <Project>{b2ecf2c3-79f7-4287-9dc3-7baf32ca3ead}</Project>
+      <Name>Tone.Pagination</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.Core\Tone.Core.csproj">
+      <Project>{2291737e-7bdb-45df-9443-76b1da569004}</Project>
+      <Name>Tone.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.Data.Memory.Base\Tone.Data.Memory.Base.csproj">
+      <Project>{D01EF7D5-13F0-4F2B-A46E-813309D1384E}</Project>
+      <Name>Tone.Data.Memory.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.Data.Mongo.Base\Tone.Data.Mongo.Base.csproj">
+      <Project>{5ee77473-0e24-47c4-bd60-252a41572c4d}</Project>
+      <Name>Tone.Data.Mongo.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.Data.Mongo\Tone.Data.Mongo.csproj">
+      <Project>{8274e611-0879-49b8-8ed1-dbe9bf4bfc0d}</Project>
+      <Name>Tone.Data.Mongo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr100.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr100.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

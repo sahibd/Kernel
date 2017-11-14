@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C72D09A1-A36A-4865-BA3A-1DD139FB002D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Tone.TelematicsKernel</RootNamespace>
+    <AssemblyName>Tone.TelematicsKernel</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-part|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug-part\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=13.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="MongoDB.Bson, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.4.4\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.4.4\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.4.4\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevicesModuleCore_FullRecord.cs" />
+    <Compile Include="DriveStyleSettingsModuleCore.cs" />
+    <Compile Include="DevicesModuleCore.cs" />
+    <Compile Include="GeozoneBusinessLogic\GeozoneCustomValidator.cs" />
+    <Compile Include="GeozoneBusinessLogic\RequiredPointsCount.cs" />
+    <Compile Include="GeozoneModuleCore.cs" />
+    <Compile Include="Helpers\DeviceFullRecordHelper.cs" />
+    <Compile Include="Helpers\DeviceBuilder.cs" />
+    <Compile Include="MappingProfiles\DeviceMappingProfile.cs" />
+    <Compile Include="MappingProfiles\DriveStyleMappingProfile.cs" />
+    <Compile Include="MappingProfiles\GeozoneMappingProfile.cs" />
+    <Compile Include="RandomData.cs" />
+    <Compile Include="RoadEventsDeterminer.cs" />
+    <Compile Include="TelematicsKernelSubsystemModule.cs" />
+    <Compile Include="TelematicsKernelSubsystemModules.cs" />
+    <Compile Include="TelematicsKernelSubsystemProviders.cs" />
+    <Compile Include="TelematicsKernelSubsystemRepositories.cs" />
+    <Compile Include="TelematicsKernelSubsystem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TrackAnalyzeModuleCore.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Tone.Pagination\Tone.Pagination.csproj">
+      <Project>{b2ecf2c3-79f7-4287-9dc3-7baf32ca3ead}</Project>
+      <Name>Tone.Pagination</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.AnalyticProcessor.Data\Tone.AnalyticProcessor.Data.csproj">
+      <Project>{7182e19c-77eb-4122-a437-8cc96027b037}</Project>
+      <Name>Tone.AnalyticProcessor.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.Core\Tone.Core.csproj">
+      <Project>{2291737e-7bdb-45df-9443-76b1da569004}</Project>
+      <Name>Tone.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.Data.Mongo.Base\Tone.Data.Mongo.Base.csproj">
+      <Project>{5ee77473-0e24-47c4-bd60-252a41572c4d}</Project>
+      <Name>Tone.Data.Mongo.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.Data.Mongo\Tone.Data.Mongo.csproj">
+      <Project>{8274e611-0879-49b8-8ed1-dbe9bf4bfc0d}</Project>
+      <Name>Tone.Data.Mongo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.Security.Data\Tone.Security.Data.csproj">
+      <Project>{73D37F58-AC91-4479-A6FE-1D474EFE9A75}</Project>
+      <Name>Tone.Security.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.SegmentStatistic.Base\Tone.SegmentStatistic.Base.csproj">
+      <Project>{7cfa0af3-1bc2-47f2-8ff3-e021a6a98283}</Project>
+      <Name>Tone.SegmentStatistic.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.SegmentStatistic.DriveStyle\Tone.SegmentStatistic.DriveStyle.csproj">
+      <Project>{f0daa6cd-c730-4e34-a138-084d660077f5}</Project>
+      <Name>Tone.SegmentStatistic.DriveStyle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.SegmentStatistic.Fuel\Tone.SegmentStatistic.Fuel.csproj">
+      <Project>{ced0fc84-034d-42ab-9b88-47ed64087cc4}</Project>
+      <Name>Tone.SegmentStatistic.Fuel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.SegmentStatistic.General\Tone.SegmentStatistic.General.csproj">
+      <Project>{8987a670-f993-4565-aa81-2569d8977c50}</Project>
+      <Name>Tone.SegmentStatistic.General</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.TelematicsKernel.Data\Tone.TelematicsKernel.Data.csproj">
+      <Project>{8E7F96B8-0A59-45A1-B8E7-6D713DA85413}</Project>
+      <Name>Tone.TelematicsKernel.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Tone.Validation\Tone.Validation.csproj">
+      <Project>{3dab248d-e087-4ff0-8814-f3d78b7c69e1}</Project>
+      <Name>Tone.Validation</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

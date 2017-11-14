@@ -1,0 +1,2 @@
+d:\KERNEL\Tone.TelematicsKernel.ConsoleUtility\bin\Debug\Tone.TelematicsKernel.ConsoleUtility.exe.config
+D:\KERNEL\Tone.TelematicsKernel.ConsoleUtility\obj\Debug\Tone.TelematicsKernel.ConsoleUtility.csprojResolveAssemblyReference.cache
